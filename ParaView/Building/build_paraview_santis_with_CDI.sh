@@ -89,6 +89,7 @@ cmake -S ../ParaView-v${paraview_version} \
   \
   -DPARAVIEW_PLUGIN_AUTOLOAD_CDIReader:BOOL=ON \
   -DPARAVIEW_PLUGIN_ENABLE_CDIReader:BOOL=ON \
-  -DCDI_DIR=${cdi_install_dir}/lib/cmake/cdi 
+  -DCDI_DIR=${cdi_install_dir}/lib/cmake/cdi \
+  -DPARAVIEW_PLUGIN_ENABLE_NetCDFTimeAnnotationPlugin:BOOL=ON
 
 make -j32 install
