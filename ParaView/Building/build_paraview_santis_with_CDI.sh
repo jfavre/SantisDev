@@ -1,4 +1,4 @@
-uenv start /bret/scratch/cscs/bcumming/images/icon-dsl-3.squashfs
+uenv start /bret/scratch/cscs/bcumming/images/icon-dsl-4.squashfs
 uenv view default
 
 mkdir $SCRATCH/GH/ParaView-CDI
