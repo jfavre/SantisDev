@@ -45,7 +45,7 @@ gunzip cdi-2.2.4.tar.gz
 tar xf cdi-2.2.4.tar
 cd cdi-2.2.4/
 ./configure --enable-iso-c-interface \
-            --with-netcdf=/user-environment/linux-sles15-neoverse_v2/gcc-12.3.0/netcdf-c-4.9.2-b6jsl6dd6vojrsv6tbmzob4oooubatd6 \
+            --with-netcdf=`nc-config --prefix` \
             --prefix=${cdi_install_dir}
 make && make install
 cd ..
