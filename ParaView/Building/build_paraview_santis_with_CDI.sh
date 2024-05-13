@@ -50,7 +50,13 @@ cd cdi-2.2.4/
 make && make install
 cd ..
 
-
+################
+# Ospray and TBB and OIDN
+################
+ospray_version=2.12.0
+ospray_install_dir=$SCRATCH/GH/ospray-v${ospray_version}
+oidn_version=2.2.2
+oidn_install_dir=$SCRATCH/GH/ospray-v${ospray_version}
 ################
 # ParaView
 ################
@@ -92,6 +98,12 @@ cmake -S ../ParaView-v${paraview_version} \
   -DPARAVIEW_PLUGIN_AUTOLOAD_CDIReader:BOOL=ON \
   -DPARAVIEW_PLUGIN_ENABLE_CDIReader:BOOL=ON \
   -DCDI_DIR=${cdi_install_dir}/lib/cmake/cdi \
-  -DPARAVIEW_PLUGIN_ENABLE_NetCDFTimeAnnotationPlugin:BOOL=ON
+  \
+  -DPARAVIEW_PLUGIN_ENABLE_NetCDFTimeAnnotationPlugin:BOOL=ON \
+  \
+  -DPARAVIEW_ENABLE_RAYTRACING:BOOL=ON \
+  -DVTKOSPRAY_ENABLE_DENOISER:BOOL=ON \
+  -DOpenImageDenoise_DIR=${ospray_install_dir}/lib64/cmake/OpenImageDenoise-2.2.2 \
+  -Dospray_DIR=${ospray_install_dir}/ospray/lib64/cmake/ospray-2.12.0
 
 make -j32 install
