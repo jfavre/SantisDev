@@ -64,4 +64,4 @@ cmake -S .. \
 	-DCMAKE_INSTALL_PREFIX=$SCRATCH/GH/ospray-v${ospray_version} \
 	-DOIDN_DEVICE_CUDA:BOOOL=ON
 
-cmake --build .
+cmake --build . --target install
