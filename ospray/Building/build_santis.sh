@@ -44,7 +44,7 @@ cmake -S ../scripts/superbuild \
 	-DCMAKE_INSTALL_PREFIX=$SCRATCH/GH/ospray-v${ospray_version} \
 	-DDOWNLOAD_ISPC:BOOL=OFF \
 	-DDOWNLOAD_TBB:BOOL=ON \
-	-DINSTALL_IN_SEPARATE_DIRECTORIE:BOOL=OFF
+	-DINSTALL_IN_SEPARATE_DIRECTORIES:BOOL=OFF
 
 cmake --build .
 cd ../..
@@ -62,6 +62,6 @@ mkdir build;cd build
 
 cmake -S .. \
 	-DCMAKE_INSTALL_PREFIX=$SCRATCH/GH/ospray-v${ospray_version} \
-	-DOIDN_DEVICE_CUDA:BOOOL=ON
+	-DOIDN_DEVICE_CUDA:BOOL=ON
 
 cmake --build . --target install
