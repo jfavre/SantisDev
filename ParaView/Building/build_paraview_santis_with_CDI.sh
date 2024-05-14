@@ -104,6 +104,6 @@ cmake -S ../ParaView-v${paraview_version} \
   -DPARAVIEW_ENABLE_RAYTRACING:BOOL=ON \
   -DVTKOSPRAY_ENABLE_DENOISER:BOOL=ON \
   -DOpenImageDenoise_DIR=${ospray_install_dir}/lib64/cmake/OpenImageDenoise-2.2.2 \
-  -Dospray_DIR=${ospray_install_dir}/ospray/lib64/cmake/ospray-2.12.0
+  -Dospray_DIR=${ospray_install_dir}/lib64/cmake/ospray-2.12.0
 
 make -j32 install
