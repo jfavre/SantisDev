@@ -8,8 +8,9 @@ export TBB_ROOT=`spack location -i intel-tbb/z5`
 export CC=`which gcc`
 export CXX=`which g++`
 
-ccmake -S .. \
+cmake -S .. \
   -DBUILD_TESTING:BOOL=ON \
+  -DCMAKE_BUILD_TYPE=Release \
   -DParaView_DIR=/bret/scratch/cscs/jfavre/GH/ParaView/5.12-CDI/lib64/cmake/paraview-5.12 \
   -Dcatalyst_DIR=${catalyst_install_dir}/lib64/cmake/catalyst-2.0 \
   -DCDI_DIR=${cdi_install_dir}/lib/cmake/cdi
