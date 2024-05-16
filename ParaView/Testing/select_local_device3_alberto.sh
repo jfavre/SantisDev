@@ -4,6 +4,12 @@ GPUS=(0 1 2 3)
 let lrank=$SLURM_LOCALID%4
 export VTK_DEFAULT_EGL_DEVICE_INDEX=${GPUS[lrank]}
 
+# add libcatalyst path
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/user-environment/linux-sles15-neoverse_v2/gcc-12.3.0/paraview-5.12.0-ufgihv5c7muqmmns5p6hcnx5fds3n7ho/lib64/catalyst
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/user-environment/linux-sles15-neoverse_v2/gcc-12.3.0/libcatalyst-2.0.0-vrqeuotqqc76ofqwr6qpc33jtbe6ffyw/lib64
+
+export CATALYST_IMPLEMENTATION_PATHS=/user-environment/linux-sles15-neoverse_v2/gcc-12.3.0/paraview-5.12.0-ufgihv5c7muqmmns5p6hcnx5fds3n7ho/lib64/catalyst
+#
 # add numpy
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/users/jfavre/.pyenv310/lib/python3.10/site-packages/numpy/lib
 
