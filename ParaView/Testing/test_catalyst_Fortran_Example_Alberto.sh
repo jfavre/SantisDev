@@ -1,4 +1,4 @@
-uenv start /bret/scratch/cscs/ialberto/paraview+cdi+raytracing+libcatalyst.squashfs
+uenv start /bret/scratch/cscs/ialberto/paraview+cdi+raytracing+libcatalyst-wrun.squashfs
 uenv view default
 
 export FC=`which gfortran`
@@ -32,4 +32,4 @@ $SCRATCH/Fortran90FullExampleBuild/bin/Fortran90FullExampleV2 $SCRATCH/Fortran90
 
 # on a compute node in parallel
 
-srun --uenv=/bret/scratch/cscs/ialberto/paraview+cdi+raytracing+libcatalyst.squashfs:/user-environment -u -N 1 -n 4 -c64 /users/jfavre/Projects/SantisDev/ParaView/Testing/select_local_device3_alberto.sh $SCRATCH/Fortran90FullExampleBuild/bin/Fortran90FullExampleV2 $SCRATCH/Fortran90FullExample/catalyst_pipeline.py
+srun --uenv=/bret/scratch/cscs/ialberto/paraview+cdi+raytracing+libcatalyst-wrun.squashfs:/user-environment -u -N 1 -n 4 -c64 /users/jfavre/Projects/SantisDev/ParaView/Testing/select_local_device3_alberto.sh $SCRATCH/Fortran90FullExampleBuild/bin/Fortran90FullExampleV2 $SCRATCH/Fortran90FullExample/catalyst_pipeline.py
