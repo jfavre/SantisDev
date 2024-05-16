@@ -25,10 +25,11 @@ export CATALYST_IMPLEMENTATION_PATHS=`spack location -i paraview`/lib64/catalyst
 # on login node, modify the script to tell it to save data in $SCRATCH/datasets
 # we will also need LD_LIBRARY_PATH loaded with the `spack location -i paraview`/lib64/catalyst and the `spack location -i libcatalyst`/lib64. See the wrapper script
 
-sed -i '1s/^/import os\n/' ./Fortran90FullExample/catalyst_pipeline.py
-sed -i '/EnableCatalystLive/aoptions.ExtractsOutputDirectory = os.getenv("SCRATCH")+"/datasets"' ./Fortran90FullExample/catalyst_pipeline.py
-./Fortran90FullExampleBuild/bin/Fortran90FullExampleV2 ./Fortran90FullExample/catalyst_pipeline.py
+sed -i '1s/^/import os\n/' $SCRATCH/Fortran90FullExample/catalyst_pipeline.py
+sed -i '/EnableCatalystLive/aoptions.ExtractsOutputDirectory = os.getenv("SCRATCH")+"/datasets"' $SCRATCH/Fortran90FullExample/catalyst_pipeline.py
+# execute on login node?
+$SCRATCH/Fortran90FullExampleBuild/bin/Fortran90FullExampleV2 $SCRATCH/Fortran90FullExample/catalyst_pipeline.py
 
 # on a compute node in parallel
 
-srun --uenv=/bret/scratch/cscs/ialberto/paraview+cdi+raytracing+libcatalyst.squashfs:/user-environment -u -N 1 -n 4 -c64 /users/jfavre/Projects/SantisDev/ParaView/Testing/select_local_device3_alberto.sh ./Fortran90FullExampleBuild/bin/Fortran90FullExampleV2 ./Fortran90FullExample/catalyst_pipeline.py
+srun --uenv=/bret/scratch/cscs/ialberto/paraview+cdi+raytracing+libcatalyst.squashfs:/user-environment -u -N 1 -n 4 -c64 /users/jfavre/Projects/SantisDev/ParaView/Testing/select_local_device3_alberto.sh $SCRATCH/Fortran90FullExampleBuild/bin/Fortran90FullExampleV2 $SCRATCH/Fortran90FullExample/catalyst_pipeline.py
