@@ -28,14 +28,12 @@ paraview.simple._DisableFirstRenderCameraReset()
 mf0 = "/users/jfavre/Projects/RayTracing/OSPRayMaterials-0.3/ospray_mats.json"
 materialLibrary0 = GetMaterialLibrary()
 print("using materials: {:}".format(mf0))
-
-mf1 = "/users/jfavre/Projects/ParaView/ospray_mats.json"
-
-print("using materials: {:}".format(mf1))
-
 materialLibrary0.LoadMaterials = mf0
-materialLibrary1 = GetMaterialLibrary()
-materialLibrary1.LoadMaterials = mf1
+
+#mf1 = "/users/jfavre/Projects/ParaView/ospray_mats.json"
+#print("using materials: {:}".format(mf1))
+#materialLibrary1 = GetMaterialLibrary()
+#materialLibrary1.LoadMaterials = mf1
 
 Batch = True
 OptiXEnabled = False
@@ -46,14 +44,9 @@ OSPRay_Version = "OSPRay2.12.0"
 
 OptiX_Version  = "Optix6.5"
 
-imageRes = [1024, 1024]
-
-renderView1 = GetRenderView()
-
 if Batch:
   ProgressivePasses = 0
   SamplesPerPixel = 50
-  renderView1.ViewSize = imageRes
 else:
   ProgressivePasses = 1000
   SamplesPerPixel = 1
@@ -66,6 +59,9 @@ light2 = CreateLight()
 light2.Position = [0.0, 0.0, 1.0]
 light2.Intensity = .3
 
+# create light
+# Create a new 'Render View'
+renderView1 = GetRenderView()
 renderView1.AxesGrid = 'GridAxes3DActor'
 renderView1.OrientationAxesVisibility = 0
 renderView1.CenterOfRotation = [0.0, 0.4856886910475378, 0.0]
@@ -79,8 +75,11 @@ renderView1.Background = [0.1803921568627451, 0.20392156862745098, 0.21176470588
 renderView1.EnableRayTracing = 0 # Classic OpenGL
 renderView1.SamplesPerPixel = SamplesPerPixel
 renderView1.AdditionalLights = [light1, light2]
-renderView1.OSPRayMaterialLibrary = [materialLibrary0, materialLibrary1]
+renderView1.OSPRayMaterialLibrary = [materialLibrary0]
+#renderView1.OSPRayMaterialLibrary = [materialLibrary0, materialLibrary1]
 
+imageRes = [1024, 1024]
+#renderView1.ViewSize = imageRes
 SetActiveView(renderView1)
 
 # client side
@@ -293,7 +292,7 @@ if Batch:
   ImageCount += 1
 
 # Eigth do OSPRay rendering. A refractive material
-liquidDisplay.OSPRayMaterial = 'water'
+liquidDisplay.OSPRayMaterial = 'Glass_Water'
 if Batch:
   SaveScreenshot(format("RayTracing-%s-tutorial.%02d.png" % (OSPRay_Version, ImageCount)), ImageResolution=imageRes)
   ImageCount += 1
