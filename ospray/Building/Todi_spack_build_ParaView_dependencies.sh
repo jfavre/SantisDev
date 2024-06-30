@@ -6,3 +6,18 @@ cd $SCRATCH/GH/ParaView-CDI
 export SPACK_SYSTEM_CONFIG_PATH="/user-environment/config"
 spack install ospray@2.12.0 ~mpi+denoiser+volumes~apps~glm
 spack install eccodes@2.32.1 +aec +openmp +netcdf
+
+export FC=`which gfortran`
+export CC=`which gcc`
+export CXX=`which g++`
+
+cdi_version=2.2.4
+cdi_install_dir=$SCRATCH/GH/ParaView-CDI/cdi-v${cdi_version}Install
+wget https://code.mpimet.mpg.de/attachments/download/28877/cdi-2.2.4.tar.gz
+gunzip cdi-2.2.4.tar.gz
+tar xf cdi-2.2.4.tar
+cd cdi-2.2.4
+./configure --enable-iso-c-interface --with-netcdf=`spack location -i netcdf-c`  --prefix=${cdi_install_dir} --enable-cdi-app=no --enable-grib=no
+make && make install
+
+
