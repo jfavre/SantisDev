@@ -7,6 +7,10 @@ tar xf ParaView-v${paraview_version}.tar.xz
 mkdir ParaView-v${paraview_version}Build-EGL
 cd    ParaView-v${paraview_version}Build-EGL
 
+export FC=`which gfortran`
+export CC=`which gcc`
+export CXX=`which g++`
+
 cmake -S ../ParaView-v${paraview_version} \
   -DCMAKE_INSTALL_PREFIX=${paraview_install_dir} \
   -DMPI_C_COMPILER=/user-environment/env/default/bin/mpicc \
