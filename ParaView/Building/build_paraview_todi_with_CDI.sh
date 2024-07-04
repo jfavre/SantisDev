@@ -11,6 +11,13 @@ export FC=`which gfortran`
 export CC=`which gcc`
 export CXX=`which g++`
 
+which python3
+# numpy is a must to be able to use programmable filters
+# use my local ven
+
+source ~/todi-venv/bin/activate
+python3 -c "import numpy as np"
+
 cmake -S ../ParaView-v${paraview_version} \
   -DCMAKE_INSTALL_PREFIX=${paraview_install_dir} \
   -DMPI_C_COMPILER=/user-environment/env/default/bin/mpicc \
