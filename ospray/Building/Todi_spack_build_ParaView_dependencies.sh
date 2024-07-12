@@ -20,7 +20,7 @@ cd cdi-2.2.4
 pushd `spack location -i eccodes`
 ln -s lib64 lib
 popd
-./configure --enable-iso-c-interface --with-netcdf=`spack location -i netcdf-c` --with-eccodes=`spack location -i eccodes` --prefix=${cdi_install_dir} --enable-cdi-app=no --enable-grib=no
+./configure --enable-iso-c-interface --with-netcdf=`spack location -i netcdf-c` --with-eccodes=`spack location -i eccodes` --prefix=${cdi_install_dir} --enable-grib=no
 make && make install
 
 
