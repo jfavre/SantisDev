@@ -13,6 +13,9 @@ tar xf ParaView-v${paraview_version}.tar.xz
 mkdir ParaView-v${paraview_version}Build-EGL
 cd    ParaView-v${paraview_version}Build-EGL
 
+cdi_version=2.2.4
+cdi_install_dir=$SCRATCH/GH/ParaView-CDI/cdi-v${cdi_version}Install
+
 export FC=`which gfortran`
 export CC=`which gcc`
 export CXX=`which g++`
