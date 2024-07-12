@@ -1,3 +1,9 @@
+uenv start prgenv-gnu/24.7:v3
+uenv view default
+export SPACK_ROOT=$SCRATCH/spack-todi
+. $SPACK_ROOT/share/spack/setup-env.sh
+export SPACK_SYSTEM_CONFIG_PATH="/user-environment/config"
+
 cd $SCRATCH/GH/ParaView-CDI
 paraview_version=5.13.0-RC1
 paraview_install_dir=$SCRATCH/GH/ParaView/Todi-5.13
