@@ -25,7 +25,7 @@ cmake -S ../ParaView-v${paraview_version} \
   -DCMAKE_BUILD_TYPE=Release \
   -DPARAVIEW_USE_FORTRAN:BOOL=ON \
   -DVTK_MODULE_USE_EXTERNAL_VTK_hdf5:BOOL=ON \
-  -DHDF5_DIR:PATH=`spack location -i hdf5/nj`/cmake \
+  -DHDF5_DIR:PATH=`spack location -i hdf5`/cmake \
   -DPARAVIEW_USE_MPI:BOOL=ON \
   -DPARAVIEW_BUILD_TESTING:BOOL=OFF \
   -DPARAVIEW_BUILD_EDITION=CANONICAL \
