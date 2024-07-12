@@ -17,7 +17,10 @@ wget https://code.mpimet.mpg.de/attachments/download/28877/cdi-2.2.4.tar.gz
 gunzip cdi-2.2.4.tar.gz
 tar xf cdi-2.2.4.tar
 cd cdi-2.2.4
-./configure --enable-iso-c-interface --with-netcdf=`spack location -i netcdf-c`  --prefix=${cdi_install_dir} --enable-cdi-app=no --enable-grib=no
+pushd `spack location -i eccodes`
+ln -s lib64 lib
+popd
+./configure --enable-iso-c-interface --with-netcdf=`spack location -i netcdf-c` --with-eccodes=`spack location -i eccodes` --prefix=${cdi_install_dir} --enable-cdi-app=no --enable-grib=no
 make && make install
 
 
