@@ -56,7 +56,7 @@ cmake -S ../ParaView-v${paraview_version} \
   -DPARAVIEW_PLUGIN_ENABLE_CDIReader:BOOL=ON \
   -DCDI_DIR=${cdi_install_dir}/lib/cmake/cdi \
   \
-  -DPARAVIEW_PLUGIN_ENABLE_NetCDFTimeAnnotationPlugin:BOOL=OFF \
+  -DPARAVIEW_PLUGIN_ENABLE_NetCDFTimeAnnotationPlugin:BOOL=ON \
   \
   -DPARAVIEW_ENABLE_RAYTRACING:BOOL=ON \
   -DVTKOSPRAY_ENABLE_DENOISER:BOOL=ON \
