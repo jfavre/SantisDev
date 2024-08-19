@@ -1,4 +1,4 @@
-uenv start prgenv-gnu/24.2:latest
+uenv start prgenv-gnu/24.7:v3
 uenv view default
 
 mkdir $SCRATCH/GH/ParaView-CDI
