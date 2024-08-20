@@ -64,7 +64,8 @@ cmake -S ../ParaView-v${paraview_version} \
   -DVTK_SMP_IMPLEMENTATION_TYPE:STRING=TBB \
   -DTBB_DIR=`spack location -i intel-tbb`/lib64/cmake/TBB \
   -DPARAVIEW_ENABLE_EXAMPLES:BOOL=OFF \
-  -DPARAVIEW_ENABLE_CATALYST:BOOL=OFF \
+  -DPARAVIEW_ENABLE_CATALYST:BOOL=ON \
+  -Dcatalyst_DIR=${catalyst_install_dir}/lib64/cmake/catalyst-2.0 \
   -DPARAVIEW_USE_QT:BOOL=OFF \
   -DPARAVIEW_ENABLE_WEB:BOOL=OFF \
   -DVTK_OPENGL_HAS_EGL:BOOL=ON -DVTK_USE_X:BOOL=OFF \
