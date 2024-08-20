@@ -6,6 +6,7 @@ cd $SCRATCH/GH/ParaView-CDI
 export SPACK_SYSTEM_CONFIG_PATH="/user-environment/config"
 spack install ospray@2.12.0 ~mpi+denoiser+volumes~apps~glm
 spack install eccodes@2.32.1 +aec +openmp +netcdf
+spack install ffmpeg@5.1.4 +libx264 +lzma +shared  +libvpx +libvorbis +libssh
 
 export FC=`which gfortran`
 export CC=`which gcc`
