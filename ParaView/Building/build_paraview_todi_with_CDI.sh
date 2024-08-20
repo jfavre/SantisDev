@@ -5,13 +5,6 @@ export SPACK_ROOT=$SCRATCH/spack-todi
 export SPACK_SYSTEM_CONFIG_PATH="/user-environment/config"
 
 cd $SCRATCH/GH/ParaView-CDI
-paraview_version=5.13.0-RC2
-paraview_install_dir=$SCRATCH/GH/ParaView/Todi-5.13
-wget https://www.paraview.org/files/v5.13/ParaView-v${paraview_version}.tar.xz
-tar xf ParaView-v${paraview_version}.tar.xz
-
-mkdir ParaView-v${paraview_version}Build-EGL
-cd    ParaView-v${paraview_version}Build-EGL
 
 cdi_version=2.2.4
 cdi_install_dir=$SCRATCH/GH/ParaView-CDI/cdi-v${cdi_version}Install
@@ -26,6 +19,14 @@ which python3
 
 source ~/todi-venv/bin/activate
 python3 -c "import numpy as np"
+
+paraview_version=5.13.0-RC2
+paraview_install_dir=$SCRATCH/GH/ParaView/Todi-5.13
+wget https://www.paraview.org/files/v5.13/ParaView-v${paraview_version}.tar.xz
+tar xf ParaView-v${paraview_version}.tar.xz
+
+mkdir ParaView-v${paraview_version}Build-EGL
+cd    ParaView-v${paraview_version}Build-EGL
 
 cmake -S ../ParaView-v${paraview_version} \
   -DCMAKE_INSTALL_PREFIX=${paraview_install_dir} \
