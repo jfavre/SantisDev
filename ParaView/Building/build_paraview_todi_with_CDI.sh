@@ -24,22 +24,7 @@ python3 -c "import numpy as np"
 # Catalyst
 ################
 
-catalyst_version=2.0.0
-catalyst_install_dir=$SCRATCH/GH/ParaView-CDI/catalyst-v${catalyst_version}Install
-
-git clone https://gitlab.kitware.com/paraview/catalyst catalyst-v${catalyst_version}
-cd catalyst-v${catalyst_version}
-git checkout v${catalyst_version}
-git submodule update
-cd ..
-cmake -S catalyst-v${catalyst_version} \
-      -B catalystBuild \
-      -DCATALYST_USE_MPI:BOOL=ON \
-      -DCATALYST_WRAP_FORTRAN:BOOL=ON \
-      -DCATALYST_WRAP_PYTHON:BOOL=ON \
-      -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_INSTALL_PREFIX=${catalyst_install_dir}
-cmake --build catalystBuild --target install
+spack install libcatalyst@2.0.0 +python  +mpi +fortran
 
 paraview_version=5.13.0-RC2
 paraview_install_dir=$SCRATCH/GH/ParaView/Todi-5.13
@@ -65,7 +50,7 @@ cmake -S ../ParaView-v${paraview_version} \
   -DTBB_DIR=`spack location -i intel-tbb`/lib64/cmake/TBB \
   -DPARAVIEW_ENABLE_EXAMPLES:BOOL=OFF \
   -DPARAVIEW_ENABLE_CATALYST:BOOL=ON \
-  -Dcatalyst_DIR=${catalyst_install_dir}/lib64/cmake/catalyst-2.0 \
+  -Dcatalyst_DIR=`spack location -i libcatalyst`/lib64/cmake/catalyst-2.0 \
   -DPARAVIEW_USE_QT:BOOL=OFF \
   -DPARAVIEW_ENABLE_WEB:BOOL=OFF \
   -DVTK_OPENGL_HAS_EGL:BOOL=ON -DVTK_USE_X:BOOL=OFF \
