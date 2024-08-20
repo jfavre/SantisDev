@@ -20,6 +20,27 @@ which python3
 source ~/todi-venv/bin/activate
 python3 -c "import numpy as np"
 
+################
+# Catalyst
+################
+
+catalyst_version=2.0.0
+catalyst_install_dir=$SCRATCH/GH/ParaView-CDI/catalyst-v${catalyst_version}Install
+
+git clone https://gitlab.kitware.com/paraview/catalyst catalyst-v${catalyst_version}
+cd catalyst-v${catalyst_version}
+git checkout v${catalyst_version}
+git submodule update
+cd ..
+cmake -S catalyst-v${catalyst_version} \
+      -B catalystBuild \
+      -DCATALYST_USE_MPI:BOOL=ON \
+      -DCATALYST_WRAP_FORTRAN:BOOL=ON \
+      -DCATALYST_WRAP_PYTHON:BOOL=ON \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_INSTALL_PREFIX=${catalyst_install_dir}
+cmake --build catalystBuild --target install
+
 paraview_version=5.13.0-RC2
 paraview_install_dir=$SCRATCH/GH/ParaView/Todi-5.13
 wget https://www.paraview.org/files/v5.13/ParaView-v${paraview_version}.tar.xz
