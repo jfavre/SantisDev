@@ -70,6 +70,6 @@ cmake -S ../ParaView-v${paraview_version} \
   -DVTKOSPRAY_ENABLE_DENOISER:BOOL=ON \
   -DOpenImageDenoise_DIR=`spack location -i openimagedenoise`/lib64/cmake/OpenImageDenoise-2.2.2 \
   -Dembree_DIR=`spack location -i embree`/lib64/cmake/embree-4.3.1 \
-  -Drkcommon_DIR=`spack location -i rkcommon`/lib64/cmake/rkcommon-1.11.0 \
-  -Dopenvkl_DIR=`spack location -i openvkl`/lib64/cmake/openvkl-1.3.2 \
-  -Dospray_DIR=`spack location -i ospray`/lib64/cmake/ospray-2.12.0
+  -Drkcommon_DIR=`spack location -i rkcommon/gxwzatp`/lib64/cmake/rkcommon-1.11.0 \
+  -Dopenvkl_DIR=`spack location -i openvkl/tgvxiwb`/lib64/cmake/openvkl-1.3.2 \
+  -Dospray_DIR=`spack location -i ospray/jhobziu`/lib64/cmake/ospray-2.12.0
