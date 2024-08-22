@@ -76,7 +76,7 @@ cmake -S ../ParaView-v${paraview_version} \
 
 # Adding a new build for ospray v3.1
 
-paraview_version=5.13.0-RC2
+paraview_version=5.13.0
 paraview_install_dir=$SCRATCH/GH/ParaView/Todi-5.13-Ospray31
 mkdir ParaView-v${paraview_version}Build-EGL-Ospray31
 cd    ParaView-v${paraview_version}Build-EGL-Ospray31
@@ -96,6 +96,8 @@ cmake -S ../ParaView-v${paraview_version} \
   -DVTK_SMP_IMPLEMENTATION_TYPE:STRING=TBB \
   -DTBB_DIR=`spack location -i intel-tbb`/lib64/cmake/TBB \
   -DPARAVIEW_ENABLE_EXAMPLES:BOOL=OFF \
+  -DPARAVIEW_ENABLE_CATALYST:BOOL=ON \
+  -Dcatalyst_DIR=`spack location -i libcatalyst`/lib64/cmake/catalyst-2.0 \
   -DPARAVIEW_USE_QT:BOOL=OFF \
   -DPARAVIEW_ENABLE_WEB:BOOL=OFF \
   -DVTK_OPENGL_HAS_EGL:BOOL=ON -DVTK_USE_X:BOOL=OFF \
@@ -104,6 +106,12 @@ cmake -S ../ParaView-v${paraview_version} \
   -DPARAVIEW_PLUGIN_AUTOLOAD_pvNVIDIAIndeX:BOOL=ON \
   \
   -DPARAVIEW_USE_VTKM=ON -DPARAVIEW_USE_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=90 \
+  \
+  -DPARAVIEW_PLUGIN_AUTOLOAD_CDIReader:BOOL=ON \
+  -DPARAVIEW_PLUGIN_ENABLE_CDIReader:BOOL=ON \
+  -DCDI_DIR=${cdi_install_dir}/lib/cmake/cdi \
+  \
+  -DPARAVIEW_PLUGIN_ENABLE_NetCDFTimeAnnotationPlugin:BOOL=ON \
   \
   -DPARAVIEW_ENABLE_RAYTRACING:BOOL=ON \
   -DVTKOSPRAY_ENABLE_DENOISER:BOOL=ON \
