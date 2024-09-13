@@ -6,7 +6,7 @@ export SPACK_SYSTEM_CONFIG_PATH="/user-environment/config"
 
 cd $SCRATCH/GH/ParaView-CDI
 
-cdi_version=2.2.4
+cdi_version=2.4.0
 cdi_install_dir=$SCRATCH/GH/ParaView-CDI/cdi-v${cdi_version}Install
 
 export FC=`which gfortran`
