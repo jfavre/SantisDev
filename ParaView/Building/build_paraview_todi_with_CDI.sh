@@ -26,7 +26,7 @@ python3 -c "import numpy as np"
 
 spack install libcatalyst@2.0.0 +python  +mpi +fortran
 
-paraview_version=5.13.0
+paraview_version=5.13.1
 paraview_install_dir=$SCRATCH/GH/ParaView/Todi-5.13
 wget https://www.paraview.org/files/v5.13/ParaView-v${paraview_version}.tar.xz
 tar xf ParaView-v${paraview_version}.tar.xz
@@ -76,7 +76,7 @@ cmake -S ../ParaView-v${paraview_version} \
 
 # Adding a new build for ospray v3.1
 
-paraview_version=5.13.0
+paraview_version=5.13.1
 paraview_install_dir=$SCRATCH/GH/ParaView/Todi-5.13-Ospray31
 mkdir ParaView-v${paraview_version}Build-EGL-Ospray31
 cd    ParaView-v${paraview_version}Build-EGL-Ospray31
