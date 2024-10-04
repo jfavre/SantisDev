@@ -1,5 +1,4 @@
-uenv start prgenv-gnu/24.7:v3
-uenv view default
+uenv start prgenv-gnu/24.7:v3 --view default
 export SPACK_ROOT=$SCRATCH/spack-todi
 . $SPACK_ROOT/share/spack/setup-env.sh
 export SPACK_SYSTEM_CONFIG_PATH="/user-environment/config"
