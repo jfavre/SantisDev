@@ -49,7 +49,7 @@ cmake -S ../ParaView-v${paraview_version} \
   -DTBB_DIR=`spack location -i intel-tbb`/lib64/cmake/TBB \
   -DPARAVIEW_ENABLE_EXAMPLES:BOOL=OFF \
   -DPARAVIEW_ENABLE_ADIOS2:BOOL=ON \
-  -DADIOS2_DIR=`spack location -i adios`/lib64/cmake/adios2 \
+  -DADIOS2_DIR=`spack location -i adios2`/lib64/cmake/adios2 \
   -DPARAVIEW_ENABLE_FIDES:BOOL=ON \
   -DPARAVIEW_ENABLE_CATALYST:BOOL=ON \
   -Dcatalyst_DIR=`spack location -i libcatalyst`/lib64/cmake/catalyst-2.0 \
@@ -99,7 +99,7 @@ cmake -S ../ParaView-v${paraview_version} \
   -DTBB_DIR=`spack location -i intel-tbb`/lib64/cmake/TBB \
   -DPARAVIEW_ENABLE_EXAMPLES:BOOL=OFF \
   -DPARAVIEW_ENABLE_ADIOS2:BOOL=ON \
-  -DADIOS2_DIR=`spack location -i adios`/lib64/cmake/adios2 \
+  -DADIOS2_DIR=`spack location -i adios2`/lib64/cmake/adios2 \
   -DPARAVIEW_ENABLE_FIDES:BOOL=ON \
   -DPARAVIEW_ENABLE_CATALYST:BOOL=ON \
   -Dcatalyst_DIR=`spack location -i libcatalyst`/lib64/cmake/catalyst-2.0 \
