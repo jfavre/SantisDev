@@ -18,7 +18,7 @@ which python3
 
 source ~/todi-venv/bin/activate
 python3 -c "import numpy as np"
-
+# this also picks up mpi4py so I must say to use mpi4py from an external source to avoid conflicts. See below
 ################
 # Catalyst
 ################
@@ -56,6 +56,8 @@ cmake -S ../ParaView-v${paraview_version} \
   -DPARAVIEW_USE_QT:BOOL=OFF \
   -DPARAVIEW_ENABLE_WEB:BOOL=OFF \
   -DVTK_OPENGL_HAS_EGL:BOOL=ON -DVTK_USE_X:BOOL=OFF \
+  \
+  -DVTK_MODULE_USE_EXTERNAL_VTK_mpi4py:BOOL=ON \
   \
   -DPARAVIEW_PLUGIN_ENABLE_pvNVIDIAIndeX:BOOL=ON \
   -DPARAVIEW_PLUGIN_AUTOLOAD_pvNVIDIAIndeX:BOOL=ON \
