@@ -1,29 +1,24 @@
-uenv start prgenv-gnu/24.7:v3 --view default
-export SPACK_ROOT=$SCRATCH/spack-todi
+uenv start prgenv-gnu/24.11:rc2 --view default
+export SPACK_ROOT=$SCRATCH/spack-todi-2411rc2
 . $SPACK_ROOT/share/spack/setup-env.sh
 export SPACK_SYSTEM_CONFIG_PATH="/user-environment/config"
-
-cd $SCRATCH/GH/ParaView-CDI
-
-cdi_version=2.4.0
-cdi_install_dir=$SCRATCH/GH/ParaView-CDI/cdi-v${cdi_version}Install
 
 export FC=`which gfortran`
 export CC=`which gcc`
 export CXX=`which g++`
 
-which python3
+#which python3
 # numpy is a must to be able to use programmable filters
 # use my local ven
 
-source ~/todi-venv/bin/activate
-python3 -c "import numpy as np"
+#source ~/todi-venv/bin/activate
+#python3 -c "import numpy as np"
 # this also picks up mpi4py so I must say to use mpi4py from an external source to avoid conflicts. See below
 ################
 # Catalyst
 ################
 
-spack install libcatalyst@2.0.0 +python  +mpi +fortran
+#spack install libcatalyst@2.0.0 +python  +mpi +fortran
 
 paraview_version=5.13.1
 paraview_install_dir=$SCRATCH/GH/ParaView/Todi-5.13
@@ -40,7 +35,7 @@ cmake -S ../ParaView-v${paraview_version} \
   -DCMAKE_BUILD_TYPE=Release \
   -DPARAVIEW_USE_FORTRAN:BOOL=ON \
   -DVTK_MODULE_USE_EXTERNAL_VTK_hdf5:BOOL=ON \
-  -DHDF5_DIR:PATH=`spack location -i hdf5/aiimm22`/cmake \
+  -DHDF5_DIR:PATH=`spack location -i hdf5`/cmake \
   -DPARAVIEW_USE_MPI:BOOL=ON \
   -DPARAVIEW_BUILD_TESTING:BOOL=OFF \
   -DPARAVIEW_BUILD_EDITION=CANONICAL \
@@ -66,7 +61,7 @@ cmake -S ../ParaView-v${paraview_version} \
   \
   -DPARAVIEW_PLUGIN_AUTOLOAD_CDIReader:BOOL=ON \
   -DPARAVIEW_PLUGIN_ENABLE_CDIReader:BOOL=ON \
-  -DCDI_DIR=${cdi_install_dir}/lib/cmake/cdi \
+  -DCDI_DIR=`spack location -i cdi`/lib/cmake/cdi \
   \
   -DPARAVIEW_PLUGIN_ENABLE_NetCDFTimeAnnotationPlugin:BOOL=ON \
   \
@@ -74,9 +69,9 @@ cmake -S ../ParaView-v${paraview_version} \
   -DVTKOSPRAY_ENABLE_DENOISER:BOOL=ON \
   -DOpenImageDenoise_DIR=`spack location -i openimagedenoise`/lib64/cmake/OpenImageDenoise-2.2.2 \
   -Dembree_DIR=`spack location -i embree`/lib64/cmake/embree-4.3.1 \
-  -Drkcommon_DIR=`spack location -i rkcommon/gxwzatp`/lib64/cmake/rkcommon-1.11.0 \
-  -Dopenvkl_DIR=`spack location -i openvkl/tgvxiwb`/lib64/cmake/openvkl-1.3.2 \
-  -Dospray_DIR=`spack location -i ospray/jhobziu`/lib64/cmake/ospray-2.12.0
+  -Drkcommon_DIR=`spack location -i rkcommon`/lib64/cmake/rkcommon-1.11.0 \
+  -Dopenvkl_DIR=`spack location -i openvkl`/lib64/cmake/openvkl-1.3.2 \
+  -Dospray_DIR=`spack location -i ospray`/lib64/cmake/ospray-2.12.0
 
 # Adding a new build for ospray v3.1
 
