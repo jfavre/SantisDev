@@ -1,18 +1,19 @@
-uenv start prgenv-gnu/24.11:rc2 --view default
-export SPACK_ROOT=$SCRATCH/spack-todi-2411rc2
+uenv start prgenv-gnu/24.11:v1 --view default
+export SPACK_ROOT=$SCRATCH/spack-todi
 . $SPACK_ROOT/share/spack/setup-env.sh
 export SPACK_SYSTEM_CONFIG_PATH="/user-environment/config"
+
+spack env activate paraview-gh-ospray2
 
 export FC=`which gfortran`
 export CC=`which gcc`
 export CXX=`which g++`
 
-#which python3
+# which python3
 # numpy is a must to be able to use programmable filters
-# use my local ven
-
-#source ~/todi-venv/bin/activate
-#python3 -c "import numpy as np"
+# h5py is useful, to read for example SPH-EXA data
+# verify they are there 
+# python3 -c "import numpy as np; import h5py; import mpi4py"
 # this also picks up mpi4py so I must say to use mpi4py from an external source to avoid conflicts. See below
 ################
 # Catalyst
