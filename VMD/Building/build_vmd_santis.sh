@@ -1,5 +1,4 @@
-uenv start /bret/scratch/cscs/bcumming/images/prgenv-gnu-24.2-v2.squashfs
-uenv view default
+uenv start prgenv-gnu/24.11:v1 --view default
 
 cd $HOME/Projects/
 # see https://www.tcl.tk/doc/howto/compile.html
