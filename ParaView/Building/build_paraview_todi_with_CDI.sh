@@ -21,7 +21,7 @@ export CXX=`which g++`
 
 #spack install libcatalyst@2.0.0 +python  +mpi +fortran
 
-paraview_version=5.13.1
+paraview_version=5.13.2
 paraview_install_dir=$SCRATCH/GH/ParaView/Todi-5.13
 wget https://www.paraview.org/files/v5.13/ParaView-v${paraview_version}.tar.xz
 tar xf ParaView-v${paraview_version}.tar.xz
