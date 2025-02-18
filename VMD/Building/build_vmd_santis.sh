@@ -18,7 +18,7 @@ pushd plugins
 
 sed -i 's/ltcl8.5/ltcl8.6/g' Make-arch
 
-sed -i '/switch/a ## CSCS Todi\n case todi-ln00*:\n    echo "Using build settings for CSCS Santis ARM64"\n    setenv TCLINC -I$HOME/Projects/Tcl/include\n    setenv TCLLIB -L$HOME/Projects/Tcl/lib\n    cd $unixdir; make LINUXARM64 >& log.LINUXARM64.$DATE < /dev/null &\n    echo "Waiting for all plugin make jobs to complete..."\n    wait;\n    echo "^G^G^G^G"\n    echo "Plugin builds done..."\n    breaksw;\n' build.csh
+sed -i '/switch/a ## CSCS Daint\n case daint-ln00*:\n    echo "Using build settings for CSCS Santis ARM64"\n    setenv TCLINC -I$HOME/Projects/Tcl/include\n    setenv TCLLIB -L$HOME/Projects/Tcl/lib\n    cd $unixdir; make LINUXARM64 >& log.LINUXARM64.$DATE < /dev/null &\n    echo "Waiting for all plugin make jobs to complete..."\n    wait;\n    echo "^G^G^G^G"\n    echo "Plugin builds done..."\n    breaksw;\n' build.csh
 
 ./build.csh
 
