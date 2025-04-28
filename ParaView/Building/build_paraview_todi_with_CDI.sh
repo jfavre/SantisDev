@@ -1,9 +1,9 @@
-uenv start prgenv-gnu/24.11:v1 --view default
-export SPACK_ROOT=$SCRATCH/spack-todi
+uenv start prgenv-gnu/24.11:v2 --view default
+export SPACK_ROOT=$PROJECT/jfavre/spack-daint
 . $SPACK_ROOT/share/spack/setup-env.sh
 export SPACK_SYSTEM_CONFIG_PATH="/user-environment/config"
 
-spack env activate paraview-gh-ospray2
+spack env activate paraview
 
 export FC=`which gfortran`
 export CC=`which gcc`
@@ -21,8 +21,8 @@ export CXX=`which g++`
 
 #spack install libcatalyst@2.0.0 +python  +mpi +fortran
 
-paraview_version=5.13.2
-paraview_install_dir=$SCRATCH/GH/ParaView/Todi-5.13
+paraview_version=5.13.3
+paraview_install_dir=$SCRATCH/GH/ParaView/Daint-5.13
 wget https://www.paraview.org/files/v5.13/ParaView-v${paraview_version}.tar.xz
 tar xf ParaView-v${paraview_version}.tar.xz
 
