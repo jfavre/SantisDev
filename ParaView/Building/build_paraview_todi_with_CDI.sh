@@ -19,7 +19,7 @@ export CXX=`which g++`
 # Catalyst
 ################
 
-#spack install libcatalyst@2.0.0 +python  +mpi +fortran
+#spack install --add libcatalyst@2.0.0 +python  +mpi +fortran
 
 paraview_version=5.13.3
 paraview_install_dir=$SCRATCH/GH/ParaView/Daint-5.13
