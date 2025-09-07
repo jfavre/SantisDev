@@ -7,8 +7,9 @@ spack install silo@4.11.1 ~python
 spack install libcatalyst+fortran+mpi+python
 spack install ospray@3.1.0
 spack install py-h5py
+spack install cdi
 
-spack load py-numpy py-h5py ninja ospray silo boost
+spack load py-numpy py-h5py ninja ospray silo boost cdi libcatalyst
 
 export FC=`which gfortran`
 export CC=`which gcc`
