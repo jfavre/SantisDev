@@ -1,4 +1,4 @@
-uenv start prgenv-gnu/25.06:rc5 --view=spack
+uenv start prgenv-gnu/25.6:v1 --view=spack
 export SPACK_ROOT=$STORE/jfavre/spack
 . $SPACK_ROOT/share/spack/setup-env.sh
 export SPACK_SYSTEM_CONFIG_PATH="/user-environment/config"
