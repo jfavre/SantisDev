@@ -3,13 +3,17 @@ export SPACK_ROOT=$STORE/jfavre/spack
 . $SPACK_ROOT/share/spack/setup-env.sh
 export SPACK_SYSTEM_CONFIG_PATH="/user-environment/config"
 
-spack install silo@4.11.1 ~python
-spack install libcatalyst+fortran+mpi+python
-spack install ospray@3.1.0
-spack install py-h5py
-spack install cdi
+spack add silo@4.11.1 ~python
+spack add libcatalyst+fortran+mpi+python
+spack add ospray@3.1.0
+spack add py-h5py
+spack add cdi
+spack add boost
+spack concretize -f
+spack install
 
-spack load py-numpy py-h5py ninja ospray silo boost cdi libcatalyst
+spack env activate paraview
+spack load py-numpy py-h5py ninja ospray silo boost cdi libcatalyst cmake
 
 export FC=`which gfortran`
 export CC=`which gcc`
