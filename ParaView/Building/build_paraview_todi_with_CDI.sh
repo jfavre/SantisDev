@@ -91,8 +91,14 @@ eval `spack-uenv load --sh py-numpy/xl py-h5py/i55 ninja ospray/vi silo/wn boost
 export CXX=`which g++`
 export CC=`which gcc`
 export FC=`which gfortran`
- 
+
+export SPACK_SYSTEM_CONFIG_PATH=/user-environment/config
+spack env activate paraview
+spack load py-numpy py-h5py ninja ospray silo boost cdi libcatalyst cuda cmake
+
 cmake -GNinja -S ../ParaView -DMPI_C_COMPILER=`which mpicc` -DCMAKE_BUILD_TYPE=Release  \
+-DCMAKE_CUDA_ARCHITECTURES=90 \
+ -DCMAKE_INSTALL_PREFIX=/capstor/scratch/cscs/jfavre/ParaView/dev \
  -DPARAVIEW_USE_FORTRAN:BOOL=ON -DVTK_MODULE_USE_EXTERNAL_VTK_hdf5:BOOL=ON -DPARAVIEW_USE_MPI:BOOL=ON \
  -DPARAVIEW_BUILD_TESTING:BOOL=OFF -DPARAVIEW_BUILD_EDITION=CANONICAL -DPARAVIEW_USE_PYTHON:BOOL=ON \
  -DVTK_SMP_IMPLEMENTATION_TYPE:STRING=TBB -DPARAVIEW_ENABLE_EXAMPLES:BOOL=OFF -DPARAVIEW_USE_QT:BOOL=OFF \
