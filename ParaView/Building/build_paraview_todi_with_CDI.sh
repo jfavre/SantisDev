@@ -9,6 +9,7 @@ spack add ospray@3.1.0
 spack add py-h5py
 spack add cdi
 spack add boost
+spack add py-cftime
 spack concretize -f
 spack install
 
