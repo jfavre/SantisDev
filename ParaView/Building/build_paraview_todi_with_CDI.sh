@@ -14,7 +14,7 @@ spack concretize -f
 spack install
 
 spack env activate paraview
-spack load py-numpy py-h5py ninja ospray silo boost cdi libcatalyst cmake
+spack load py-numpy py-h5py ninja ospray silo boost cdi libcatalyst cmake py-cftime
 
 export FC=`which gfortran`
 export CC=`which gcc`
@@ -98,7 +98,7 @@ spack env activate paraview
 spack load py-numpy py-h5py ninja ospray silo boost cdi libcatalyst cuda cmake
 
 cmake -GNinja -S ../ParaView -DMPI_C_COMPILER=`which mpicc` -DCMAKE_BUILD_TYPE=Release  \
--DCMAKE_CUDA_ARCHITECTURES=90 \
+ -DCMAKE_CUDA_ARCHITECTURES=90 \
  -DCMAKE_INSTALL_PREFIX=/capstor/scratch/cscs/jfavre/ParaView/dev \
  -DPARAVIEW_USE_FORTRAN:BOOL=ON -DVTK_MODULE_USE_EXTERNAL_VTK_hdf5:BOOL=ON -DPARAVIEW_USE_MPI:BOOL=ON \
  -DPARAVIEW_BUILD_TESTING:BOOL=OFF -DPARAVIEW_BUILD_EDITION=CANONICAL -DPARAVIEW_USE_PYTHON:BOOL=ON \
@@ -108,5 +108,6 @@ cmake -GNinja -S ../ParaView -DMPI_C_COMPILER=`which mpicc` -DCMAKE_BUILD_TYPE=R
  -DPARAVIEW_USE_VISKORES=ON -DPARAVIEW_USE_CUDA=OFF -DPARAVIEW_PLUGIN_AUTOLOAD_CDIReader:BOOL=ON \
  -DPARAVIEW_PLUGIN_ENABLE_CDIReader:BOOL=ON \-DPARAVIEW_PLUGIN_ENABLE_NetCDFTimeAnnotationPlugin:BOOL=OFF \
  -DPARAVIEW_ENABLE_RAYTRACING:BOOL=ON -DVTKOSPRAY_ENABLE_DENOISER:BOOL=ON \
- -DPARAVIEW_ENABLE_VISITBRIDGE=ON -DVISIT_BUILD_READER_Silo:BOOL=ON
+ -DPARAVIEW_ENABLE_VISITBRIDGE=ON -DVISIT_BUILD_READER_Silo:BOOL=ON \
+ -DPARAVIEW_PLUGIN_ENABLE_NetCDFTimeAnnotationPlugin:BOOL=ON
  
