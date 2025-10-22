@@ -89,9 +89,9 @@ uenv start /capstor/scratch/cscs/biddisco/uenvs/paraview-silo-gh200-6.0.0-2025-0
 cd /capstor/scratch/cscs/jfavre/ParaView/ParaViewBuild-JB-nocuda-EGL
 eval `spack-uenv load --sh py-numpy/xl py-h5py/i55 ninja ospray/vi silo/wn boost cdi gcc/ja`
 
-export CXX=`which g++`
-export CC=`which gcc`
-export FC=`which gfortran`
+export CXX=/usr/bin/g++-12
+export CC=/usr/bin/gcc-12
+export FC=/usr/bin/gfortran-12
 
 export SPACK_SYSTEM_CONFIG_PATH=/user-environment/config
 spack env activate paraview
