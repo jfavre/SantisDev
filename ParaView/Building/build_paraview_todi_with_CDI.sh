@@ -7,14 +7,14 @@ spack add silo@4.11.1 ~python
 spack add libcatalyst+fortran+mpi+python
 spack add ospray@3.1.0
 spack add py-h5py
-spack add cdi
+spack add cdi@2.5.3 +netcdf
 spack add boost
 spack add py-cftime
 spack concretize -f
 spack install
 
 spack env activate paraview
-spack load py-numpy py-h5py ninja ospray silo boost cdi libcatalyst cmake py-cftime
+spack load py-numpy py-h5py ninja ospray silo boost cdi@2.5.3 libcatalyst cmake py-cftime
 
 export FC=`which gfortran`
 export CC=`which gcc`
@@ -41,7 +41,7 @@ cmake -GNinja \
   -DCMAKE_INSTALL_PREFIX=${paraview_install_dir} \
   -DMPI_C_COMPILER=/user-environment/env/default/bin/mpicc \
   -DMPI_C_COMPILER_INCLUDE_DIRS=/user-environment/env/default/include \
-  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_BUILD_TYPE=RelWithDebInfo \
   -DPARAVIEW_USE_FORTRAN:BOOL=ON \
   -DVTK_MODULE_USE_EXTERNAL_VTK_hdf5:BOOL=ON \
   -DHDF5_DIR:PATH=`spack location -i hdf5`/cmake \
@@ -97,7 +97,7 @@ export SPACK_SYSTEM_CONFIG_PATH=/user-environment/config
 spack env activate paraview
 spack load py-numpy py-h5py ninja ospray silo boost cdi libcatalyst cuda cmake
 
-cmake -GNinja -S ../ParaView -DMPI_C_COMPILER=`which mpicc` -DCMAKE_BUILD_TYPE=Release  \
+cmake -GNinja -S ../ParaView -DMPI_C_COMPILER=`which mpicc` -DCMAKE_BUILD_TYPE=RelWithDebInfo  \
  -DCMAKE_CUDA_ARCHITECTURES=90 \
  -DCMAKE_INSTALL_PREFIX=/capstor/scratch/cscs/jfavre/ParaView/dev-tbb \
  -DPARAVIEW_USE_FORTRAN:BOOL=ON -DVTK_MODULE_USE_EXTERNAL_VTK_hdf5:BOOL=ON -DPARAVIEW_USE_MPI:BOOL=ON \
