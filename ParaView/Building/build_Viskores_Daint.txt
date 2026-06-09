@@ -1,0 +1,12 @@
+uenv start prgenv-gnu/25.6:v1 --view=modules
+export SPACK_SYSTEM_CONFIG_PATH="/user-environment/config"
+
+cd /capstor/scratch/cscs/jfavre/
+git clone https://github.com/Viskores/viskores
+
+spack load cmake ninja cray-mpich cuda/q2
+cmake -GNinja -S Viskores -B Viskores-build-cuda \
+      -DViskores_ENABLE_CUDA=ON \
+      -DViskores_ENABLE_MPI=ON \
+      -DCMAKE_CUDA_ARCHITECTURES=90 \
+      -DCMAKE_BUILD_TYPE=RelWithDebInfo
